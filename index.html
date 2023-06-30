@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Order Numbers! </title>
+        <link rel="stylesheet" href="style.css"> 
+    </head>
+    <body>
+        <h1> Welcome to Number Master! </h1>
+        <h3> Order any list of numbers in ascending order!</h3>
+        <label for="List!"> List! </label>
+        <textarea id="list" name="input" rows="1" cols="50">Enter 3 numbers separated by commas.</textarea>
+        <button id="order" onclick="Order()"> Order List! </button>
+        <label for="Ordered!"> Ordered List! </label>
+        <textarea id="list2" name="output" rows="1" cols="50"></textarea>
+        <script>
+            const txt = document.getElementById('list');
+            const button = document.getElementById('order');
+            const txt2 = document.getElementById('list2');
+            function Order() {
+                var input = document.getElementById('list').value;
+                function validateList(input) {
+                    var regex = /^-?\d+(\s*,\s*-?\d+)*$/;
+                    return regex.test(input);
+                }
+                if (!validateList(input)) {
+                    alert("You have entered an invalid list! Please enter 3 numbers with a comma in between each one.")
+                }
+                else {
+                    var numbers = input.split(",");
+                    if (numbers.length !== 3) {
+                        alert("Please enter exactly 3 numbers.");
+                    }
+                    else {
+                        var numbers2 = numbers.map(Number); 
+                        numbers2.sort(function(a, b) {
+                            return a - b;
+                        });
+                        txt2.value = numbers2.join(", ");
+                    }
+                }
+            }
+            button.addEventListener('click', Order);
+
+        </script>
+    </body>
+</html>

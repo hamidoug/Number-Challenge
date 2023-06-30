@@ -1,0 +1,19 @@
+body {
+    background-color: aliceblue;
+}
+h1 {
+    color: orange;
+}
+
+h3 {
+    color: black;
+}
+ label {
+    color: green;
+}
+textarea {
+    color: red;
+}
+button {
+    color: green;
+}
